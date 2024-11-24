@@ -1,0 +1,27 @@
+<!-- Views/Conteudo/Index.cshtml -->
+@model IEnumerable<Just.Models.Conteudo>
+
+<h1>Conteúdos</h1>
+<a asp-action="Create">Adicionar Conteúdo</a>
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var conteudo in Model)
+        {
+            <tr>
+                <td>@conteudo.Titulo</td>
+                <td>@conteudo.Descricao</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@conteudo.ID">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@conteudo.ID">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
