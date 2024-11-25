@@ -1,0 +1,56 @@
+@model IEnumerable<Just.Models.Playlist>
+
+@{
+    ViewData["Title"] = "Playlists";
+}
+<h1>@ViewBag.Message</h1>
+<h2>Playlists</h2>
+
+<div id="playlistsContainer"></div> <!-- Contêiner para exibir as playlists -->
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- Certifique-se de que o jQuery está incluído -->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Playlist/GetPlaylists', // A URL para a ação do controlador
+            type: 'GET', // Tipo da requisição
+            success: function (data) {
+                // Sucesso na chamada, aqui você pode manipular os dados recebidos
+                console.log(data); // Exibir os dados no console para verificar
+                // Adiciona as playlists ao contêiner
+                $.each(data, function (index, playlist) {
+                    $('#playlistsContainer').append('<div>' + playlist.Nome + '</div>');
+                });
+            },
+            error: function (error) {
+                // Caso ocorra um erro
+                console.error('Erro ao buscar playlists:', error);
+            }
+        });
+    });
+</script>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Playlist</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var playlist in Model)
+        {
+            <tr>
+                <td>@playlist.Nome</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@playlist.ID" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@playlist.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

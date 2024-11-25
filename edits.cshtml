@@ -1,19 +1,14 @@
-<!-- Views/Conteudo/Edit.cshtml -->
-@model Just.Models.Conteudo
+<!-- Views/Criador/Edit.cshtml -->
+@model Just.Models.Criador
 
-<h1>Editar Conteúdo</h1>
+<h1>Editar Criador</h1>
 
 <form asp-action="Edit">
     <input type="hidden" asp-for="ID" />
     <div>
-        <label asp-for="Titulo"></label>
-        <input asp-for="Titulo" />
-        <span asp-validation-for="Titulo"></span>
-    </div>
-    <div>
-        <label asp-for="Descricao"></label>
-        <input asp-for="Descricao" />
-        <span asp-validation-for="Descricao"></span>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" />
+        <span asp-validation-for="Nome"></span>
     </div>
     <button type="submit">Salvar</button>
     <a asp-action="Index">Cancelar</a>

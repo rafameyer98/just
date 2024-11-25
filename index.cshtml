@@ -1,25 +1,22 @@
-<!-- Views/Conteudo/Index.cshtml -->
-@model IEnumerable<Just.Models.Conteudo>
+@model IEnumerable<Just.Models.Criador>
 
-<h1>Conteúdos</h1>
-<a asp-action="Create">Adicionar Conteúdo</a>
+<h1>Criadores</h1>
+<a asp-action="Create">Adicionar Criador</a>
 <table>
     <thead>
         <tr>
-            <th>Título</th>
-            <th>Descrição</th>
+            <th>Nome</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var conteudo in Model)
+        @foreach (var criador in Model)
         {
             <tr>
-                <td>@conteudo.Titulo</td>
-                <td>@conteudo.Descricao</td>
+                <td>@criador.Nome</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@conteudo.ID">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@conteudo.ID">Excluir</a>
+                    <a asp-action="Edit" asp-route-id="@criador.ID">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@criador.ID">Excluir</a>
                 </td>
             </tr>
         }

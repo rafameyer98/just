@@ -1,19 +1,18 @@
-<!-- Views/Conteudo/Create.cshtml -->
-@model Just.Models.Conteudo
+@model Just.Models.Criador
 
-<h1>Adicionar Conteúdo</h1>
+<h1>Criar Criador</h1>
 
-<form asp-action="Create">
+<form asp-action="Create" method="post">
     <div>
-        <label asp-for="Titulo"></label>
-        <input asp-for="Titulo" />
-        <span asp-validation-for="Titulo"></span>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
     <div>
-        <label asp-for="Descricao"></label>
-        <input asp-for="Descricao" />
-        <span asp-validation-for="Descricao"></span>
-    </div>
-    <button type="submit">Salvar</button>
-    <a asp-action="Index">Cancelar</a>
+       <div class="form-group">
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+    <button type="submit">Criar</button>
 </form>

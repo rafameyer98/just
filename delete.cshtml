@@ -1,9 +1,8 @@
-<!-- Views/Conteudo/Delete.cshtml -->
-@model Just.Models.Conteudo
+<!-- Views/Criador/Delete.cshtml -->
+@model Just.Models.Criador
 
-<h1>Excluir Conteúdo</h1>
-<p>Você tem certeza que deseja excluir o conteúdo!
-    <!--<strong>@Model.Titulo</strong>?</p>--->
+<h1>Excluir Criador</h1>
+<p>Você tem certeza que deseja excluir o criador <strong>@Model.Nome</strong>?</p>
 
 <form asp-action="Delete">
     <input type="hidden" asp-for="ID" />
